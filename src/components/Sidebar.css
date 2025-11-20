@@ -1,0 +1,140 @@
+:root {
+  --dark-bg: #0b0f19;
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --primary: #00eaff;
+  --primary-soft: rgba(0, 234, 255, 0.15);
+  --text-light: #e6faff;
+  --text-dim: #8ca1b3;
+}
+
+/* SIDEBAR MAIN */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background: rgba(15, 20, 35, 0.82);
+  backdrop-filter: blur(12px);
+  border-right: 1px solid var(--glass-border);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  box-shadow: 0 0 30px rgba(0, 234, 255, 0.15);
+  z-index: 100;
+}
+
+/* HEADER */
+.sidebar-header {
+  padding: 1.8rem 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.sidebar-icon img {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.sidebar-header h2 {
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* USER INFO */
+.sidebar-user {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.user-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.user-info h3 {
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+.user-role {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+/* LINKS */
+.sidebar-nav {
+  flex: 1;
+  padding-top: 1rem;
+  overflow-y: auto;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.85rem 1.5rem;
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-left: 3px solid transparent;
+  transition: 0.25s ease-out;
+}
+
+.nav-link:hover {
+  background: rgba(0, 234, 255, 0.12);
+  color: var(--primary);
+  border-left-color: var(--primary);
+}
+
+.nav-link.active {
+  background: rgba(0, 234, 255, 0.18);
+  color: var(--primary);
+  font-weight: 600;
+  border-left-color: var(--primary);
+}
+
+/* LOGOUT */
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border: none;
+  color: #ff6b6b;
+  cursor: pointer;
+  transition: 0.25s;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 0, 0, 0.12);
+}
+
+/* Scrollbar */
+.sidebar-nav::-webkit-scrollbar {
+  width: 6px;
+}
+.sidebar-nav::-webkit-scrollbar-thumb {
+  background: rgba(0, 234, 255, 0.2);
+  border-radius: 10px;
+}

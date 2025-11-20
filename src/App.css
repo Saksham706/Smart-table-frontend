@@ -1,0 +1,26 @@
+.app {
+  min-height: 100vh;
+  background-color: var(--gray-50);
+}
+
+.Toastify__toast {
+  font-family: 'Inter', sans-serif;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+}
+
+.Toastify__toast--success {
+  background: var(--success);
+}
+
+.Toastify__toast--error {
+  background: var(--error);
+}
+
+.Toastify__toast--info {
+  background: var(--primary);
+}
+
+.Toastify__toast--warning {
+  background: var(--warning);
+}

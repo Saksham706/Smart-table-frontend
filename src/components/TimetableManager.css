@@ -1,0 +1,419 @@
+/* ================= TIMETABLE MANAGER CSS ================= */
+
+/* ===== VARIABLES ===== */
+:root {
+  /* Colors */
+  --color-background: #fcfcf9;
+  --color-surface: #fffefd;
+  --color-text: #13343b;
+  --color-text-secondary: #626c71;
+  --color-primary: #21808d;
+  --color-primary-hover: #1d7480;
+  --color-primary-active: #1a6873;
+  --color-border: rgba(94, 82, 64, 0.2);
+  --color-card-border: rgba(94, 82, 64, 0.12);
+  --color-card-border-inner: rgba(94, 82, 64, 0.12);
+  --color-error: #c0152f;
+  --color-success: #21808d;
+  --color-warning: #a84b2f;
+
+  /* Typography */
+  --font-family: "FKGroteskNeue", "Geist", "Inter", sans-serif;
+  --font-size-base: 14px;
+  --font-size-sm: 12px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-weight-normal: 400;
+  --font-weight-semibold: 550;
+  --font-weight-bold: 600;
+
+  /* Spacing */
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-base: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.04), 0 2px 4px -1px rgba(0,0,0,0.02);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.04), 0 4px 6px -2px rgba(0,0,0,0.02);
+}
+
+/* ===== DARK MODE ===== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #262828;
+    --color-surface: #1c1e1e;
+    --color-text: #f5f5f5;
+    --color-text-secondary: #a7a9a9;
+    --color-primary: #32b8c6;
+    --color-primary-hover: #2da6b2;
+    --color-primary-active: #2996a1;
+    --color-border: rgba(167, 169, 169, 0.3);
+    --color-card-border: rgba(167, 169, 169, 0.2);
+    --color-card-border-inner: rgba(167, 169, 169, 0.15);
+    --color-error: #ff5459;
+    --color-success: #32b8c6;
+    --color-warning: #e68161;
+  }
+}
+
+/* ===== GLOBAL STYLES ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  background: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+h1,h2,h3,h4,h5,h6 { margin:0; font-weight: var(--font-weight-bold); }
+p { margin:0 0 var(--space-16) 0; }
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+a:hover { color: var(--color-primary-hover); }
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-base);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--color-primary-hover); }
+.btn-primary:active { background: var(--color-primary-active); }
+
+.btn-secondary {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+.btn-secondary:hover { background: var(--color-primary-hover); color:#fff; }
+
+/* ===== CONTAINER ===== */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--space-16);
+}
+
+/* ===== TIMETABLE LAYOUT ===== */
+.timetable-container {
+  padding: var(--space-32);
+  min-height: 100vh;
+  overflow-x: auto;
+}
+
+.timetable-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--space-24);
+  margin-bottom: var(--space-32);
+}
+
+.timetable-header h1 { font-size: var(--font-size-4xl); color: var(--color-text); }
+.timetable-header p { color: var(--color-text-secondary); font-size: var(--font-size-base); }
+
+.header-actions { display: flex; gap: var(--space-16); flex-wrap: wrap; }
+
+.class-filter {
+  padding: var(--space-12) var(--space-16);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  background: var(--color-surface);
+  color: var(--color-text);
+  transition: all 0.2s ease-in-out;
+}
+.class-filter:hover { border-color: var(--color-primary); }
+
+/* ===== GRID TABLE ===== */
+.krmu-grid-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: var(--font-size-sm);
+  overflow-x:auto;
+}
+
+.krmu-grid-table th, .krmu-grid-table td {
+  padding: var(--space-12);
+  border: 1px solid var(--color-border);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.krmu-grid-table th {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.time-header { width: 120px; font-weight: var(--font-weight-bold); }
+
+/* ===== CELLS ===== */
+.timetable-cell {
+  border-radius: var(--radius-sm);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.timetable-cell.filled {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.timetable-cell.filled:hover {
+  background: var(--color-primary-hover);
+}
+
+.timetable-cell.empty {
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+}
+
+.timetable-cell .subject { font-weight: var(--font-weight-bold); }
+.timetable-cell .faculty { font-size: var(--font-size-sm); color: var(--color-text-secondary); }
+.timetable-cell .location { font-size: var(--font-size-sm); color: var(--color-text-secondary); }
+
+/* ===== CARDS ===== */
+.card {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-card-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease-in-out;
+}
+.card:hover { box-shadow: var(--shadow-md); }
+.card__header, .card__footer { padding: var(--space-16); border-bottom: 1px solid var(--color-card-border-inner); }
+.card__body { padding: var(--space-16); }
+
+/* ===== MODALS ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(19,52,59,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: var(--space-16);
+}
+.modal-content {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 1px solid var(--color-card-border);
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-16);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .timetable-header { flex-direction: column; gap: var(--space-16); }
+  .krmu-grid-table { font-size: var(--font-size-xs); }
+}
+
+/* =======================
+   KRMU LIST VIEW - DARK GLASS THEME
+   ======================= */
+
+.list-view-container {
+  margin-top: 20px;
+  width: 100%;
+  overflow-x: auto;
+  padding: 10px;
+}
+
+/* Main Table Wrapper */
+.list-table-wrapper {
+  width: 100%;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(14px);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 0 22px rgba(0, 0, 0, 0.25);
+}
+
+/* Table */
+.list-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1100px;
+}
+
+.list-table thead tr {
+  background: rgba(0, 122, 255, 0.18);
+}
+
+.list-table th {
+  padding: 14px 10px;
+  font-size: 14px;
+  color: #e3e8ef;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  font-weight: 600;
+}
+
+/* Rows */
+.list-table tbody tr {
+  transition: 0.25s ease-in-out;
+}
+
+.list-table tbody tr:hover {
+  background: rgba(0, 122, 255, 0.12);
+}
+
+/* Table Cells */
+.list-table td {
+  padding: 12px 10px;
+  font-size: 14px;
+  color: #d9dde3;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ------------------------
+   BADGES (Class, Course, Subjects)
+   ------------------------ */
+.list-badge {
+  display: inline-flex;
+  padding: 6px 12px;
+  background: rgba(98, 105, 255, 0.35);
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+/* Subject Name Highlight */
+.subject-name {
+  font-weight: 600;
+  color: #8de4ff;
+}
+
+/* Day */
+.day-badge {
+  padding: 6px 10px;
+  background: rgba(0, 255, 255, 0.15);
+  border-radius: 8px;
+  color: #b5faff;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+/* Time */
+.time-slot {
+  color: #e4e8ef;
+  font-weight: 600;
+}
+
+/* ------------------------
+   ACTION BUTTONS
+   ------------------------ */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  background: #4f46e5;
+  border: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  color: white;
+}
+
+.action-btn:hover {
+  background: #4338ca;
+  transform: translateY(-2px);
+}
+
+.action-btn.delete {
+  background: #ef4444;
+}
+
+.action-btn.delete:hover {
+  background: #dc2626;
+}
+
+/* ------------------------
+   RESPONSIVE
+   ------------------------ */
+
+@media (max-width: 992px) {
+  .list-table {
+    min-width: 900px;
+  }
+}
+
+@media (max-width: 768px) {
+  .list-table {
+    min-width: 700px;
+  }
+}
+
+@media (max-width: 480px) {
+  .list-view-container {
+    padding: 4px;
+  }
+
+  .list-table-wrapper {
+    padding: 10px;
+  }
+}

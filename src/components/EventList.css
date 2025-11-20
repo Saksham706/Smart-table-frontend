@@ -1,0 +1,421 @@
+/* =======================================================
+   EVENT LIST — DARK THEME (MATCH TIMETABLE)
+   ======================================================= */
+
+/* Prevent accidental horizontal scrolling across the app */
+html, body {
+  overflow-x: hidden;
+  height: 100%;
+  background: #0f1724; /* darker base to avoid white flash */
+  color: #e8e8f2;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- GLOBAL WRAPPER ---------- */
+.evt-hub-wrapper {
+  /* ensure wrapper occupies remaining width instead of forcing 100% + margin */
+  width: calc(100% - var(--sidebar-width, 240px));
+  padding: 20px;
+  box-sizing: border-box;
+  transition: margin-left 0.3s ease;
+  overflow-x: hidden; /* extra safety */
+}
+
+.sidebar-collapsed .evt-hub-wrapper {
+  margin-left: 80px;
+  width: calc(100% - 80px);
+}
+
+@media (max-width: 768px) {
+  .evt-hub-wrapper {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 15px;
+  }
+}
+
+/* ---------- HEADER ---------- */
+.evt-hub-header {
+  margin-bottom: 20px;
+}
+
+.evt-main-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.evt-subtitle {
+  font-size: 14px;
+  color: #bfbfd3;
+}
+
+/* ---------- TABS ---------- */
+.evt-nav-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.evt-tab-button {
+  padding: 10px 16px;
+  background: #151821;
+  border-radius: 50px;
+  border: 1px solid #252836;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #c7c7d4;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.evt-tab-button:hover {
+  background: #1a1d28;
+  border-color: #7b61ff;
+  color: #7b61ff;
+}
+
+.evt-tab-active {
+  background: #7b61ff;
+  border-color: #7b61ff;
+  color: white;
+}
+
+.evt-badge-count {
+  background: rgba(255,255,255,0.12);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+/* ---------- SEARCH ---------- */
+.evt-search-zone {
+  margin-bottom: 25px;
+}
+
+.evt-search-input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #252836;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #151821;
+}
+
+.evt-search-icon {
+  margin-right: 10px;
+  color: #7b61ff;
+}
+
+.evt-search-field {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #e8e8f2;
+  font-size: 15px;
+}
+
+/* ---------- GRID ---------- */
+.evt-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 500px) {
+  .evt-grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- EVENT CARD ---------- */
+.evt-card {
+  background: #1a1d28;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.evt-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(123,97,255,0.25);
+}
+
+.evt-card-upper {
+  padding: 18px;
+}
+
+.evt-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.evt-card-title {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.evt-school-name {
+  font-size: 14px;
+  color: #bfbfd3;
+  margin-top: 6px;
+}
+
+/* ---------- STATUS BADGES ---------- */
+.evt-status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+}
+
+.evt-badge-upcoming {
+  background: #7b61ff66;
+  color: #ffffff;
+}
+.evt-badge-ongoing {
+  background: #ff9f40;
+  color: #1a1d28;
+}
+.evt-badge-completed {
+  background: #1f8c2e;
+  color: #e8e8f2;
+}
+.evt-badge-cancelled {
+  background: #a80000;
+  color: #ffffff;
+}
+
+/* ---------- META CHIPS ---------- */
+.evt-meta-items {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.evt-meta-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #151821;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #c7c7d4;
+}
+
+/* ---------- DESCRIPTION ---------- */
+.evt-description-preview {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #bfbfd3;
+  line-height: 1.5;
+}
+
+.evt-view-more-link {
+  color: #7b61ff;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+/* ---------- TAGS ---------- */
+.evt-tag-container {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.evt-label-tag {
+  background: #252836;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #c7c7d4;
+}
+
+.evt-sdg-tag {
+  background: #2a2d3c;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #7b61ff;
+}
+
+/* ---------- CARD FOOTER ---------- */
+.evt-card-action-zone {
+  padding: 16px;
+  background: #151821;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.evt-btn-register,
+.evt-btn-unregister {
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.evt-btn-register {
+  background: #7b61ff;
+  color: #fff;
+}
+
+.evt-btn-register:hover {
+  background: #624ecc;
+}
+
+.evt-btn-unregister {
+  background: #ff5c5c;
+  color: white;
+}
+
+.evt-btn-unregister:hover {
+  background: #e54d4d;
+}
+
+.evt-registered-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #16a02d;
+  font-weight: 600;
+}
+
+/* ---------- EMPTY STATE ---------- */
+.evt-empty-state {
+  text-align: center;
+  padding: 50px 20px;
+  color: #9a9ab4;
+}
+
+.evt-empty-icon {
+  color: #7b61ff;
+}
+
+.evt-empty-title {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+/* ---------- MODAL ---------- */
+.evt-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* ensure it doesn't expand page height */
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.evt-modal-box {
+  background: #1a1d28;
+  width: 90%;
+  max-width: 650px;
+  border-radius: 14px;
+  padding: 20px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  color: #e8e8f2;
+  box-sizing: border-box;
+}
+
+.evt-modal-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.evt-modal-heading {
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.evt-modal-close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #c7c7d4;
+}
+
+/* Modal Sections */
+.evt-modal-section {
+  margin: 18px 0;
+}
+
+.evt-section-title {
+  color: #ffffff;
+  font-size: 16px;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.evt-section-text,
+.evt-full-description {
+  font-size: 14px;
+  color: #bfbfd4;
+}
+
+.evt-details-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 600px) {
+  .evt-details-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.evt-modal-footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Loading spinner container */
+.evt-loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px;
+}

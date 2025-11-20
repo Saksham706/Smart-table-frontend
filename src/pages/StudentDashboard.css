@@ -1,0 +1,124 @@
+
+.student-dashboard {
+  margin-left: 249px; /* Match sidebar width */
+  padding: 2rem;
+  min-height: 100vh;
+  background: #f3f4f6;
+  overflow-y: auto; /* Enables scrolling */
+  box-sizing: border-box;
+  width: calc(100% - 230px);
+}
+
+.student-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.student-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dfe4ea;
+}
+
+.student-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2f3542;
+}
+
+.student-notification-btn {
+  position: relative;
+  background: white;
+  border: 1px solid #e4e9ee;
+  padding: 10px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: 0.2s ease;
+}
+
+.student-notification-btn:hover {
+  background: #eef2f6;
+}
+
+.student-notification-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #ff4757;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+.student-content {
+  width: 100%;
+  height: calc(100vh - 110px);
+  overflow-y: auto;
+}
+
+.student-main::-webkit-scrollbar {
+  width: 6px;
+}
+
+.student-main::-webkit-scrollbar-thumb {
+  background: #cfd6df;
+  border-radius: 10px;
+}
+
+
+/* ---------------------- */
+/* DARK THEME (HOME PAGE STYLE) */
+/* ---------------------- */
+
+.dark .student-dashboard {
+  background: #1f2937;
+}
+
+.dark .student-main {
+   background: #1f2937;
+  color: #e3e8ef;
+  border-left: 1px solid rgba(255,255,255,0.08);
+}
+
+.dark .student-header {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.dark .student-title {
+  color: #f1f5f9;
+}
+
+/* Notification Button Dark Style */
+.dark .student-notification-btn {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(6px);
+  color: #f1f5f9;
+}
+
+.dark .student-notification-btn:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.dark .student-notification-badge {
+  background: #ff6b6b;
+}
+
+/* Scrollbar in Dark Mode */
+.dark .student-main::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.25);
+}
+
+.dark .student-main::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.05);
+}

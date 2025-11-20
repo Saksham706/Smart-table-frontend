@@ -1,0 +1,198 @@
+/* ============================================================
+   AUTH PAGE — FUTURISTIC NEON + GLASS THEME (MATCHES HOME.JSX)
+   ============================================================ */
+
+/* ------------------------------
+   BACKGROUND (Animated Gradient)
+------------------------------ */
+.auth-container {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #0a0a10, #0d121a, #111827, #0d0f15);
+  background-size: 500% 500%;
+  animation: bgShift 12s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ------------------------------
+   AUTH CARD — Glassmorphic Panel
+------------------------------ */
+.auth-card {
+  width: 100%;
+  max-width: 430px;
+  padding: 40px 35px;
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  box-shadow:
+    0 0 25px rgba(0, 255, 255, 0.18),
+    0 0 60px rgba(0, 200, 255, 0.12);
+
+  animation: fadeUp 0.7s ease-out;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ------------------------------
+   HEADER
+------------------------------ */
+.auth-header {
+  text-align: center;
+}
+
+.auth-header h1 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #00eaff;
+  text-shadow: 0 0 12px rgba(0, 255, 255, 0.6);
+}
+
+.auth-header p {
+  margin-top: 6px;
+  font-size: 15px;
+  color: #cfd6e1;
+  opacity: 0.9;
+}
+
+/* ------------------------------
+   FORM & INPUTS
+------------------------------ */
+.auth-form {
+  margin-top: 30px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  color: #d7eaff;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: flex;
+  gap: 8px;
+}
+
+/* INPUT + SELECT */
+.form-group input,
+.form-group select {
+  padding: 12px 14px;
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  color: #e9f4ff;
+  font-size: 15px;
+
+  transition: 0.25s ease;
+}
+
+.form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #00eaff;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* ------------------------------
+   BUTTON — Neon Gradient
+------------------------------ */
+.auth-btn {
+  width: 100%;
+  padding: 13px 20px;
+  margin-top: 12px;
+
+  border-radius: 14px;
+  border: none;
+
+  background: linear-gradient(135deg, #00eaff, #00b8ff);
+  color: #0a0a0a;
+
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  transition: 0.25s ease;
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.45);
+}
+
+.auth-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.7);
+}
+
+.auth-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* ------------------------------
+   FOOTER LINKS
+------------------------------ */
+.auth-footer {
+  text-align: center;
+  margin-top: 20px;
+  color: #b8c4d9;
+  font-size: 14px;
+}
+
+.auth-footer a {
+  color: #00eaff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-footer a:hover {
+  text-shadow: 0 0 10px #00eaff;
+}
+
+/* ------------------------------
+   RESPONSIVE STYLES
+------------------------------ */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 28px 22px;
+  }
+
+  .auth-header h1 {
+    font-size: 26px;
+  }
+
+  .auth-btn {
+    font-size: 15px;
+  }
+
+  .form-group input,
+  .form-group select {
+    font-size: 14px;
+  }
+}

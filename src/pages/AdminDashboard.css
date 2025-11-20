@@ -1,0 +1,168 @@
+/* === Dashboard Layout === */
+.dashboard {
+  display: flex;
+  height: 100vh;
+  background: #1f2937; /* dark background */
+  font-family: 'Inter', sans-serif;
+}
+
+/* Sidebar already styled elsewhere */
+.dashboard-content {
+  flex: 1;
+  margin-left: 250px;
+  overflow-y: auto;
+  background: #1f2937; /* match dark container */
+  transition: margin-left 0.3s ease;
+  padding: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .dashboard-content {
+    margin-left: 0;
+  }
+}
+
+/* Scrollbar */
+.dashboard-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dashboard-content::-webkit-scrollbar-thumb {
+  background: #4b5563; /* dark thumb for dark theme */
+  border-radius: 4px;
+}
+
+/* === Admin Home === */
+.admin-home {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.admin-home h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #f9fafb; /* light text */
+  margin-bottom: 0.5rem;
+}
+
+.admin-home p {
+  color: #9ca3af; /* gray-400 for dark theme */
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+}
+
+/* === Admin Cards Grid === */
+.admin-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* === Cards === */
+.admin-card {
+  background: #111827; /* dark card background */
+  border-radius: 16px;
+  padding: 2.5rem 1.8rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  border: 1px solid #374151; /* subtle dark border */
+}
+
+.admin-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3); /* primary shadow */
+  border-color: #6366f1; /* primary accent border */
+}
+
+.admin-card svg {
+  color: #818cf8; /* light primary */
+  margin-bottom: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.admin-card:hover svg {
+  color: #6366f1; /* brighter primary */
+}
+
+.admin-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #f9fafb; /* light text */
+  margin-bottom: 0.5rem;
+}
+
+.admin-card p {
+  color: #9ca3af; /* gray-400 text */
+  font-size: 0.95rem;
+}
+
+/* Optional subtle animation */
+.admin-card {
+  animation: fadeUp 0.5s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth fade-in for dashboard content */
+.dashboard-content {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Buttons and Inputs (Optional Admin Controls) === */
+button {
+  background: #4f46e5;
+  color: #f9fafb;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background: #6366f1;
+  transform: translateY(-2px);
+}
+
+/* Inputs */
+input, select, textarea {
+  background: #1f2937;
+  color: #f9fafb;
+  border: 1px solid #374151;
+  padding: 0.6rem 0.8rem;
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  outline: none;
+}

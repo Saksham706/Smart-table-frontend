@@ -1,0 +1,234 @@
+/* =======================================================
+   STUDENT TIMETABLE — PURE DARK THEME + RESPONSIVE
+   ======================================================= */
+
+/* ---------- BASE LAYOUT ---------- */
+.student-timetable {
+  background: #1f2937;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* ---------- HEADER ---------- */
+.timetable-header {
+  margin-bottom: 2rem;
+  margin-top: 0.5rem;
+}
+
+.timetable-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.3px;
+}
+
+/* ---------- DAY FILTER BUTTONS ---------- */
+.day-filter {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.day-filter button {
+  padding: 0.55rem 1.2rem;
+  background: #151821;
+  border: 1px solid #232634;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: 0.25s ease;
+  color: #c7c7d4;
+  box-shadow: 0 0 0 1px #232634;
+}
+
+.day-filter button:hover {
+  border-color: #7b61ff;
+  background: #1a1d28;
+  color: #7b61ff;
+  transform: translateY(-2px);
+}
+
+.day-filter button.active {
+  background: #7b61ff;
+  border-color: #7b61ff;
+  color: white;
+  box-shadow: 0 0 12px rgba(123, 97, 255, 0.45);
+}
+
+/* ---------- TIMETABLE CONTENT ---------- */
+.timetable-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ---------- DAY SECTION ---------- */
+.day-section {
+  background: #151821;
+  border-radius: 16px;
+  padding: 1.4rem;
+  border: 1px solid #232634;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+
+.day-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 3px solid #7b61ff55;
+}
+
+/* ---------- CLASS CARDS ---------- */
+.classes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.class-card {
+  background: #1a1d28;
+  border: 1px solid #252836;
+  border-radius: 16px;
+  padding: 1.3rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.55);
+  color: #e8e8f2;
+  transition: 0.25s ease;
+  min-height: 150px;
+}
+
+.class-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(123, 97, 255, 0.25);
+}
+
+.class-subject {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.class-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: #d6d6e2;
+  opacity: 0.9;
+}
+
+.detail-item svg {
+  color: #7b61ff;
+}
+
+/* ---------- EMPTY STATE ---------- */
+.no-classes {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  color: #9a9ab4;
+  background: #13151d;
+  border: 2px dashed #242632;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* ---------- LOADING ---------- */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  font-size: 1rem;
+  color: #bfbfd3;
+  font-weight: 600;
+}
+
+/* =======================================================
+   RESPONSIVE DESIGN
+   ======================================================= */
+
+/* ---------- Tablets (max-width: 992px) ---------- */
+@media (max-width: 992px) {
+  .timetable-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .classes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+
+/* ---------- Large Phones (max-width: 768px) ---------- */
+@media (max-width: 768px) {
+  .timetable-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .day-filter {
+    gap: 0.5rem;
+  }
+
+  .day-filter button {
+    padding: 0.45rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .classes-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ---------- Medium Phones (max-width: 600px) ---------- */
+@media (max-width: 600px) {
+  .classes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .class-card {
+    min-height: 120px;
+  }
+
+  .day-section {
+    padding: 1rem;
+  }
+}
+
+/* ---------- Small Phones (max-width: 420px) ---------- */
+@media (max-width: 420px) {
+  .timetable-header h2 {
+    font-size: 1.35rem;
+  }
+
+  .day-filter button {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.9rem;
+  }
+
+  .day-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* ---------- Very Small Screens (max-width: 350px) ---------- */
+@media (max-width: 350px) {
+  .day-filter {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .day-filter button {
+    width: 100%;
+    text-align: center;
+  }
+}
