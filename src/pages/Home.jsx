@@ -159,24 +159,6 @@ export default function Home() {
           </ResponsiveContainer>
         </div>
 
-        {/* --- Chart 2: Attendance Trend --- */}
-        <div className="analytics-card">
-          <h4>Student Attendance Trend</h4>
-          <ResponsiveContainer width="100%" height={200}>
-            <AreaChart data={attendanceData}>
-              <XAxis dataKey="day" />
-              <YAxis />
-              <Tooltip />
-              <Area
-                type="monotone"
-                dataKey="value"
-                stroke="#00ffd5"
-                fill="#00ffd533"
-              />
-            </AreaChart>
-          </ResponsiveContainer>
-        </div>
-
         {/* --- Chart 3: Event Participation --- */}
         <div className="analytics-card">
           <h4>Event Participation Growth</h4>
