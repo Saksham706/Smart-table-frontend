@@ -93,7 +93,7 @@ const Register = () => {
           <div className="form-group">
             <label htmlFor="name">
               <User size={18} />
-              Full Name
+              Id / Full Name
             </label>
             <input
               type="text"
@@ -101,7 +101,7 @@ const Register = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              placeholder="Enter your full name"
+              placeholder="Enter your Id and full name"
               required
             />
           </div>

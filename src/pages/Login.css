@@ -54,6 +54,10 @@
 ------------------------------ */
 .auth-header {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* Centers the logo horizontally */
+  justify-content: center;
 }
 
 .auth-header h1 {
