@@ -1,6 +1,6 @@
 import React from "react";
 import { Bell, Clock, Users, BookOpen, PartyPopper, UserCheck, BarChart3, Sparkles, TrendingUp } from "lucide-react";
-import krmuLogo from "../assets/krmu_logo.jpg";
+import krmuLogo from "../assets/logo.png";
 import "./Home.css";
 import {
   LineChart,
@@ -90,7 +90,7 @@ export default function Home() {
       <nav className="navbar glass-nav">
         <div className="navbar-left">
           <img src={krmuLogo} alt="KRMU" className="navbar-logo" />
-          <span className="navbar-title">KRMU Smart Notification System</span>
+          <span className="navbar-title">UnivSync</span>
         </div>
         <div className="navbar-right">
           <a href="/login" className="signin-btn">Sign In</a>
@@ -188,7 +188,7 @@ export default function Home() {
         </div>
       </section>
       <footer className="footer">
-        <p>© 2025 KRMU Smart Notification System</p>
+        <p>© 2025 UnivSync Smart Notification System</p>
         <p>Developed for enhancing communication & efficiency across campus.</p>
         <p>
           Need Help? <a href="/contact">Contact Support</a>

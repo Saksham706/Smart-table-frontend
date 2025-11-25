@@ -35,7 +35,7 @@ const StudentDashboard = () => {
       {/* MAIN CONTENT */}
       <div className="student-main">
         <header className="student-header">
-          <h1 className="student-title">KRMU Student Dashboard</h1>
+          <h1 className="student-title">UnivSync - Student Dashboard</h1>
 
           {/* NOTIFICATION BUTTON */}
           <button

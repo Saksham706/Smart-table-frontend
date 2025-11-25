@@ -4,7 +4,7 @@ import timetableService from "../services/timetableService";
 import { Plus, Edit2, Trash2, Download, Printer, Search, Grid3x3, Building2 } from "lucide-react";
 import { toast } from "react-toastify";
 import jsPDF from "jspdf";
-import krmuLogo from "../assets/krmu_logo.jpg";
+import krmuLogo from "../assets/logo.png";
 import "./TimetableManager.css";
 
 const TimetableManager = () => {
@@ -233,14 +233,14 @@ const TimetableManager = () => {
         doc.setFontSize(13);
         doc.setFont("helvetica", "bold");
         doc.setTextColor(0, 0, 0);
-        doc.text("K.R. Mangalam University", pageWidth / 2, yPosition, {
+        doc.text("UnivSync", pageWidth / 2, yPosition, {
           align: "center",
         });
         yPosition += 4;
 
         doc.setFontSize(9);
         doc.setFont("helvetica", "normal");
-        doc.text("School Road, Gurugram, Haryana 122103", pageWidth / 2, yPosition, {
+        doc.text("location ", pageWidth / 2, yPosition, {
           align: "center",
         });
         yPosition += 7;

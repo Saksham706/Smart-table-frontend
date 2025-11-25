@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
 import { toast } from 'react-toastify';
 import { Mail, Lock, ArrowRight } from 'lucide-react';
-import krmuLogo from '../assets/krmu_logo.jpg';
+import krmuLogo from '../assets/logo.png';
 import './Login.css';
 
 
@@ -74,7 +74,7 @@ const Login = () => {
             />
           </div>
           <h1>Welcome Back!</h1>
-          <p>Sign in to your KRMU Timetable account</p>
+          <p>Sign in to your UnivSync</p>
         </div>
 
         <form className="auth-form" onSubmit={handleSubmit}>

@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
 import { toast } from 'react-toastify';
 import { Mail, Lock, User, BookOpen, Building, ArrowRight } from 'lucide-react';
-import krmuLogo from '../assets/krmu_logo.jpg';
+
 import './Login.css';
 
 const Register = () => {
@@ -61,32 +61,11 @@ const Register = () => {
         <div className="auth-header">
           <div 
             className="auth-icon"
-            style={{
-              width: '100px',
-              height: '100px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-              borderRadius: '20px',
-              boxShadow: '0 10px 20px rgba(102, 126, 234, 0.3)',
-              padding: '10px',
-              margin: '0 auto'
-            }}
           >
-            <img 
-              src={krmuLogo} 
-              alt="KRMU Logo" 
-              style={{
-                width: '80px',
-                height: '80px',
-                objectFit: 'contain',
-                borderRadius: '16px'
-              }}
-            />
+
           </div>
           <h1>Create Account</h1>
-          <p>Join KRMU Timetable System today</p>
+          <p>Join UnivSync</p>
         </div>
 
         <form className="auth-form" onSubmit={handleSubmit}>

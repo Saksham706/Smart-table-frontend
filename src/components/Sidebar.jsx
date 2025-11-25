@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
 import { LogOut } from 'lucide-react';
-import krmuLogo from '../assets/krmu_logo.jpg';
+import krmuLogo from '../assets/logo.png';
 import './Sidebar.css';
 
 const Sidebar = ({ links }) => {
@@ -14,7 +14,7 @@ const Sidebar = ({ links }) => {
         <div className="sidebar-icon">
           <img src={krmuLogo} alt="KRMU Logo" />
         </div>
-        <h2>KRMU</h2>
+        <h2>UnivSync</h2>
       </div>
 
       <div className="sidebar-user">
